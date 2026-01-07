@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davilet Cloud AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-white p-6">
+    <div class="max-w-md mx-auto">
+        <h1 class="text-2xl font-bold text-cyan-400 mb-6 text-center uppercase">Davilet Cloud System</h1>
+        
+        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 mb-6 text-center">
+            <p class="text-slate-400 text-sm">BALANCE ACUMULADO</p>
+            <h2 id="balance" class="text-4xl font-bold text-green-400 mt-2">$0.00</h2>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mb-6">
+            <button onclick="reinvertir()" class="bg-blue-600 p-3 rounded-xl font-bold text-xs">REINVERTIR 50%</button>
+            <button onclick="abrirRetiro()" class="bg-green-600 p-3 rounded-xl font-bold text-xs">RETIRAR FONDOS</button>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+            <input type="text" id="nodo" placeholder="Nombre de la IA..." class="w-full bg-slate-900 p-3 rounded-lg mb-4 border border-slate-600">
+            <button onclick="generar()" class="w-full bg-cyan-500 text-slate-900 py-3 rounded-xl font-black">GENERAR DINERO</button>
+        </div>
+
+        <div id="panel" class="hidden fixed inset-0 bg-black/90 p-6 flex items-center justify-center">
+            <div class="bg-slate-800 p-6 rounded-3xl w-full">
+                <h3 class="text-xl font-bold mb-4">Detalles de Retiro</h3>
+                <select id="metodo" class="w-full bg-slate-900 p-3 rounded-lg mb-4 text-white">
+                    <option>Pago Móvil</option>
+                    <option>PayPal</option>
+                    <option>Binance (USDT)</option>
+                    <option>Transferencia Bancaria</option>
+                </select>
+                <textarea id="datos" placeholder="Ingresa tus datos aquí..." class="w-full bg-slate-900 p-3 rounded-lg h-24 mb-4 text-white"></textarea>
+                <button onclick="confirmar()" class="w-full bg-green-500 text-slate-900 py-3 rounded-xl font-bold">CONFIRMAR RETIRO</button>
+                <button onclick="cerrarRetiro()" class="w-full mt-4 text-slate-400">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let balance = 0;
+        function generar() {
+            if(!document.getElementById('nodo').value) return alert('Ponle nombre a tu IA');
+            balance += Math.random() * (25 - 5) + 5;
+            document.getElementById('balance').innerText = `$${balance.toFixed(2)}`;
+            document.getElementById('nodo').value = '';
+        }
+        function reinvertir() {
+            if(balance <= 0) return alert('No hay fondos');
+            balance *= 0.5;
+            document.getElementById('balance').innerText = `$${balance.toFixed(2)}`;
+            alert('50% reinvertido correctamente.');
+        }
+        function abrirRetiro() { document.getElementById('panel').classList.remove('hidden'); }
+        function cerrarRetiro() { document.getElementById('panel').classList.add('hidden'); }
+        function confirmar() {
+            alert('Solicitud enviada con éxito.');
+            cerrarRetiro();
+        }
+    </script>
+</body>
+</html>
