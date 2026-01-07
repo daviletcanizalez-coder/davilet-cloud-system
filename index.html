@@ -3,64 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Davilet Cloud AI</title>
+    <title>DAVILET AI SUPER-CLOUD</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-slate-900 text-white p-6">
-    <div class="max-w-md mx-auto">
-        <h1 class="text-2xl font-bold text-cyan-400 mb-6 text-center uppercase">Davilet Cloud System</h1>
-        
-        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 mb-6 text-center">
-            <p class="text-slate-400 text-sm">BALANCE ACUMULADO</p>
-            <h2 id="balance" class="text-4xl font-bold text-green-400 mt-2">$0.00</h2>
-        </div>
+<body class="bg-[#0b0f1a] text-slate-200 font-sans min-h-screen">
 
-        <div class="grid grid-cols-2 gap-4 mb-6">
-            <button onclick="reinvertir()" class="bg-blue-600 p-3 rounded-xl font-bold text-xs">REINVERTIR 50%</button>
-            <button onclick="abrirRetiro()" class="bg-green-600 p-3 rounded-xl font-bold text-xs">RETIRAR FONDOS</button>
-        </div>
-
-        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
-            <input type="text" id="nodo" placeholder="Nombre de la IA..." class="w-full bg-slate-900 p-3 rounded-lg mb-4 border border-slate-600">
-            <button onclick="generar()" class="w-full bg-cyan-500 text-slate-900 py-3 rounded-xl font-black">GENERAR DINERO</button>
-        </div>
-
-        <div id="panel" class="hidden fixed inset-0 bg-black/90 p-6 flex items-center justify-center">
-            <div class="bg-slate-800 p-6 rounded-3xl w-full">
-                <h3 class="text-xl font-bold mb-4">Detalles de Retiro</h3>
-                <select id="metodo" class="w-full bg-slate-900 p-3 rounded-lg mb-4 text-white">
-                    <option>Pago Móvil</option>
-                    <option>PayPal</option>
-                    <option>Binance (USDT)</option>
-                    <option>Transferencia Bancaria</option>
-                </select>
-                <textarea id="datos" placeholder="Ingresa tus datos aquí..." class="w-full bg-slate-900 p-3 rounded-lg h-24 mb-4 text-white"></textarea>
-                <button onclick="confirmar()" class="w-full bg-green-500 text-slate-900 py-3 rounded-xl font-bold">CONFIRMAR RETIRO</button>
-                <button onclick="cerrarRetiro()" class="w-full mt-4 text-slate-400">Cancelar</button>
+    <nav class="bg-[#161b2c] border-b border-slate-700 p-4 flex justify-between items-center sticky top-0 z-50">
+        <h1 class="text-xl font-black text-cyan-400 tracking-tighter"><i class="fas fa-microchip mr-2"></i>DAVILET AI SYSTEM</h1>
+        <div class="flex items-center gap-6">
+            <div class="text-right">
+                <p class="text-[10px] text-slate-400 uppercase tracking-widest">Nivel de Infraestructura</p>
+                <p class="text-sm font-bold text-blue-400">NODO-OPTIMUS V2.6</p>
+            </div>
+            <div class="bg-black/40 p-2 rounded-lg border border-slate-700">
+                <p class="text-[10px] text-green-500 font-bold uppercase">Balance Real</p>
+                <p id="balance" class="text-xl font-black text-white">$0.00</p>
             </div>
         </div>
-    </div>
+    </nav>
+
+    <main class="p-4 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <div class="lg:col-span-4 space-y-6">
+            <div class="bg-[#161b2c] rounded-2xl p-5 border border-slate-700 shadow-2xl">
+                <h2 class="text-cyan-400 font-bold mb-4 flex items-center gap-2">
+                    <i class="fas fa-robot"></i> ASISTENTE D-GEMINI
+                </h2>
+                <div id="chat-ia" class="h-64 overflow-y-auto mb-4 p-3 bg-black/30 rounded-xl text-sm space-y-3 border border-slate-800">
+                    <p class="text-slate-400 italic">"Hola Davilet, soy tu IA. ¿Qué súper código quieres construir hoy en la nube?"</p>
+                </div>
+                <div class="flex gap-2">
+                    <input id="input-ia" type="text" placeholder="Pide un código..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-cyan-500 outline-none">
+                    <button onclick="preguntarIA()" class="bg-cyan-600 p-2 rounded-lg hover:bg-cyan-500 transition-all">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-2xl p-5 border border-slate-700">
+                <h3 class="text-white font-bold mb-4 uppercase text-xs tracking-widest text-center">Gestión Financiera Cloud</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="reinvertir()" class="bg-blue-600/20 border border-blue-500 text-blue-400 py-3 rounded-xl font-bold text-[10px] hover:bg-blue-600 hover:text-white transition-all">REINVERTIR 50%</button>
+                    <button onclick="abrirRetiro()" class="bg-green-600/20 border border-green-500 text-green-400 py-3 rounded-xl font-bold text-[10px] hover:bg-green-600 hover:text-white transition-all">RETIRAR FONDOS</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:col-span-8 space-y-4">
+            <div class="bg-[#161b2c] rounded-2xl border border-slate-700 overflow-hidden shadow-2xl">
+                <div class="bg-slate-800 p-3 flex gap-4 border-b border-slate-700">
+                    <button class="text-cyan-400 font-bold text-xs uppercase border-b-2 border-cyan-400">Index.html</button>
+                    <button class="text-slate-500 font-bold text-xs uppercase hover:text-slate-300">Style.css</button>
+                    <button class="text-slate-500 font-bold text-xs uppercase hover:text-slate-300">Main.js</button>
+                </div>
+                <textarea id="editor" oninput="actualizarVista()" class="w-full h-96 bg-[#05070a] text-green-400 p-6 font-mono text-sm outline-none resize-none" placeholder="Escribe tu súper código aquí..."></textarea>
+                <div class="bg-slate-800 p-4 flex justify-between items-center">
+                    <p class="text-[10px] text-slate-400"><i class="fas fa-cloud-upload-alt mr-1"></i> ESTADO: CONECTADO A LA NUBE</p>
+                    <button onclick="desplegar()" class="bg-cyan-500 text-slate-900 px-6 py-2 rounded-full font-black text-xs hover:scale-105 transition-transform shadow-[0_0_15px_rgba(6,182,212,0.5)]">DESPLEGAR INFRAESTRUCTURA</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl overflow-hidden h-64 shadow-inner">
+                <iframe id="preview" class="w-full h-full border-none"></iframe>
+            </div>
+        </div>
+
+    </main>
 
     <script>
         let balance = 0;
-        function generar() {
-            if(!document.getElementById('nodo').value) return alert('Ponle nombre a tu IA');
-            balance += Math.random() * (25 - 5) + 5;
-            document.getElementById('balance').innerText = `$${balance.toFixed(2)}`;
-            document.getElementById('nodo').value = '';
+
+        function preguntarIA() {
+            const msg = document.getElementById('input-ia').value;
+            if(!msg) return;
+            const chat = document.getElementById('chat-ia');
+            chat.innerHTML += `<p class="text-cyan-400 font-bold">Tú: ${msg}</p>`;
+            chat.innerHTML += `<p class="text-slate-300">D-Gemini: Procesando código en la nube para "${msg}"... ¡Listo! Revisa tu editor.</p>`;
+            document.getElementById('editor').value = `\n<div class='p-10 text-center'>\n  <h1 class='text-4xl font-bold'>${msg}</h1>\n  <p class='text-gray-600 mt-4'>Creado con Davilet AI Cloud</p>\n</div>`;
+            actualizarVista();
+            document.getElementById('input-ia').value = "";
         }
+
+        function actualizarVista() {
+            const code = document.getElementById('editor').value;
+            const preview = document.getElementById('preview').contentWindow.document;
+            preview.open(); preview.write(code); preview.close();
+        }
+
+        function desplegar() {
+            if(document.getElementById('editor').value.length < 20) return;
+            balance += 150.00; // Pago mayor por código profesional
+            document.getElementById('balance').innerText = `$${balance.toFixed(2)}`;
+            alert("¡INFRAESTRUCTURA DESPLEGADA! Has ganado $150.00");
+        }
+
         function reinvertir() {
-            if(balance <= 0) return alert('No hay fondos');
+            if(balance <= 0) return;
             balance *= 0.5;
             document.getElementById('balance').innerText = `$${balance.toFixed(2)}`;
-            alert('50% reinvertido correctamente.');
+            alert("REINVERSIÓN EXITOSA: El 50% de los fondos se han inyectado a los servidores.");
         }
-        function abrirRetiro() { document.getElementById('panel').classList.remove('hidden'); }
-        function cerrarRetiro() { document.getElementById('panel').classList.add('hidden'); }
-        function confirmar() {
-            alert('Solicitud enviada con éxito.');
-            cerrarRetiro();
+
+        function abrirRetiro() {
+            const metodo = prompt("SISTEMA DE RETIRO DAVILET\nElige método:\n1. Pago Móvil\n2. PayPal\n3. Binance (USDT)\n4. Banco");
+            if(metodo) {
+                const det = prompt("Ingresa los datos para enviar tu dinero:");
+                if(det) alert("SOLICITUD PROCESADA\nSe enviarán los fondos a: " + det);
+            }
         }
     </script>
 </body>
-</html>
+                </html>
