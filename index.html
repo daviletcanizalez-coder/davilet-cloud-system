@@ -997,6 +997,215 @@ log("MODO EXPANSIÓN: Conectado al satélite Davilet-1.");
         sistemaDaviletIniciado();
         iniciarVigilanciaElite();
     };
+// --- LÍNEA 1001: GENERADOR DE INTERFAZ GRÁFICA ---
+    function crearPanelControles() {
+        const panel = document.createElement('div');
+        panel.style = "position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:10px; z-index:9999;";
+        
+        const botones = [
+            { texto: "💰 RETIRAR", color: "#28a745", accion: interfazRetiroReal },
+            { texto: "⚡ OPTIMIZAR", color: "#007bff", accion: expandirPotenciaExtrema },
+            { texto: "🛡️ LOCKDOWN", color: "#dc3545", accion: activarBloqueoTotal }
+        ];
+
+        botones.forEach(btn => {
+            const b = document.createElement('button');
+            b.innerText = btn.texto;
+            b.style = `padding:15px; border:none; border-radius:10px; color:white; font-weight:bold; background:${btn.color}; cursor:pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5);`;
+            b.onclick = btn.accion;
+            panel.appendChild(b);
+        });
+
+        document.body.appendChild(panel);
+        log("INTERFAZ: Panel de control táctil desplegado.", "sys-msg");
+    }
+
+    // --- LÍNEA 1025: MODO OSCURO "DEEP SPACE" ---
+    function aplicarEsteticaFinal() {
+        document.body.style.backgroundColor = "#050505";
+        document.body.style.color = "#00ff41"; // Verde Matrix
+        document.body.style.fontFamily = "'Courier New', Courier, monospace";
+        log("ESTÉTICA: Modo 'Deep Space' activado para máxima concentración.");
+    }
+
+    // Actualizamos el arranque para incluir la nueva interfaz
+    const inicioOriginal = window.onload;
+    window.onload = () => {
+        if (inicioOriginal) inicioOriginal();
+        aplicarEsteticaFinal();
+        crearPanelControles();
+        log("-----------------------------------------");
+        log("DAVILET SUPER IA: SISTEMA VISUAL LISTO.", "money-msg");
+    };
+// --- LÍNEA 1041: SISTEMA DE GRÁFICOS DINÁMICOS ---
+    function inyectarMonitorGrafico() {
+        const contenedor = document.createElement('div');
+        contenedor.style = "position:fixed; top:10px; right:10px; width:200px; height:20px; background:#222; border:1px solid #00ff41; border-radius:10px; overflow:hidden; z-index:1000;";
+        
+        const barra = document.createElement('div');
+        barra.id = "progreso-ia";
+        barra.style = "width:0%; height:100%; background:linear-gradient(90deg, #00ff41, #008f11); transition: width 0.5s;";
+        
+        contenedor.appendChild(barra);
+        document.body.appendChild(contenedor);
+        log("GRÁFICOS: Monitor de rendimiento acoplado.", "sys-msg");
+
+        // Actualiza la barra según el balance acumulado
+        setInterval(() => {
+            const porcentaje = Math.min((balance / 1000) * 100, 100); 
+            document.getElementById('progreso-ia').style.width = `${porcentaje}%`;
+        }, 1000);
+    }
+
+    // --- LÍNEA 1062: SISTEMA DE LOGROS Y METAS ---
+    let metaAlcanzada = false;
+    function verificarLogros() {
+        if (balance >= 100 && !metaAlcanzada) {
+            metaAlcanzada = true;
+            log("🏆 LOGRO DESBLOQUEADO: Tus primeros $100.00", "money-msg");
+            enviarAlertaMaestra("¡Meta alcanzada! El clúster se ha optimizado.");
+            tasaHash += 5; // Premio por rendimiento
+        }
+    }
+
+    // --- LÍNEA 1075: PROTOCOLO DE REINICIO DE INTERFAZ ---
+    const arranqueFinal = window.onload;
+    window.onload = () => {
+        if (arranqueFinal) arranqueFinal();
+        inyectarMonitorGrafico();
+        setInterval(verificarLogros, 5000);
+        log("DAVILET SUPER IA: MONITORIZACIÓN ACTIVA.", "video-msg");
+    };
+// --- LÍNEA 1080: CEREBRO DE MENSAJES INTELIGENTES ---
+    const mensajesIA = [
+        "¡Excelente ritmo! Tu clúster está operando al máximo rendimiento.",
+        "Detecto un flujo constante de ingresos. ¿Has pensado en expandir tus nodos?",
+        "Eres un administrador excepcional. El sistema Davilet Cloud se fortalece.",
+        "Recuerda: la reinversión del 50% es la clave de tu imperio digital.",
+        "¡Meta a la vista! Estás optimizando recursos como un profesional."
+    ];
+
+    function lanzarMotivacion() {
+        const indice = Math.floor(Math.random() * mensajesIA.length);
+        const mensaje = mensajesIA[indice];
+        
+        // Efecto visual de mensaje destacado
+        log(`IA CONSEJO: "${mensaje}"`, "video-msg");
+        
+        // Pequeño bono de velocidad por interactuar
+        tasaHash += 0.5;
+    }
+
+    // --- LÍNEA 1100: MODO AHORRO DE ENERGÍA INTELIGENTE ---
+    let modoAhorroActivo = false;
+    function conmutarModoAhorro() {
+        modoAhorroActivo = !modoAhorroActivo;
+        if (modoAhorroActivo) {
+            document.body.style.filter = "brightness(0.5)";
+            log("SISTEMA: Modo ahorro activado. Minería optimizada para batería.", "sys-msg");
+        } else {
+            document.body.style.filter = "brightness(1)";
+            log("SISTEMA: Modo alto rendimiento restablecido.", "money-msg");
+        }
+    }
+
+    // --- LÍNEA 1115: FINALIZACIÓN DEL NÚCLEO ---
+    const registroFinal = window.onload;
+    window.onload = () => {
+        if (registroFinal) registroFinal();
+        // Lanza un mensaje motivacional cada 7 minutos
+        setInterval(lanzarMotivacion, 420000);
+        log("-----------------------------------------");
+        log("DAVILET SUPER IA: COMUNICACIÓN ESTABLECIDA.", "video-msg");
+    };
+// --- LÍNEA 1121: PROTOCOLO DE OCULTACIÓN INMEDIATA ---
+    function activarBotonPanico() {
+        log("¡ALERTA! Activando modo camuflaje...", "video-msg");
+        // Oculta el balance y los gráficos
+        document.body.style.display = "none";
+        
+        // Simula una página de error de Google para despistar
+        setTimeout(() => {
+            window.location.href = "https://www.google.com/search?q=error+de+conexion";
+        }, 500);
+    }
+
+    // --- LÍNEA 1135: CAPTURA DE TECLAS RÁPIDAS (Atajo móvil) ---
+    // Si tocas la pantalla con 3 dedos simultáneamente, se activa el pánico
+    document.addEventListener('touchstart', (e) => {
+        if (e.touches.length >= 3) {
+            activarBotonPanico();
+        }
+    });
+
+    // --- LÍNEA 1145: VERIFICACIÓN DE IDENTIDAD FINAL ---
+    function solicitarClaveMaestra() {
+        const acceso = prompt("SISTEMA BLOQUEADO. Ingrese su firma digital:");
+        if (acceso === "DaviletAdmin") {
+            log("ACCESO CONCEDIDO. Bienvenido, Creador.", "money-msg");
+        } else {
+            activarBotonPanico();
+        }
+    }
+
+    // --- LÍNEA 1160: SELLO FINAL DE LA SUPER COMPUTADORA ---
+    const cierreDefinitivo = window.onload;
+    window.onload = () => {
+        if (cierreDefinitivo) cierreDefinitivo();
+        log("-----------------------------------------");
+        log("PROYECTO DAVILET CLOUD: ESTADO FINALIZADO.", "money-msg");
+        log("IA: Vigilancia 24/7 activada.", "sys-msg");
+    };
+// --- LÍNEA 1160: PROCESADOR DE RETIROS CONFIGURABLE ---
+    function interfazRetiroReal() {
+        const montoDisponible = balance * 0.5; // Solo permite retirar el 50%
+        const reinversión = balance * 0.5;
+        
+        const metodo = prompt("Seleccione Método: [1] Pago Móvil [2] PayPal [3] Binance [4] Banco");
+        let detalles = "";
+
+        switch(metodo) {
+            case "1": 
+                detalles = prompt("Ingrese: Teléfono, Cédula y Banco:");
+                break;
+            case "2": 
+                detalles = prompt("Ingrese su correo de PayPal:");
+                break;
+            case "3": 
+                detalles = prompt("Ingrese su dirección de red (TRC20):");
+                break;
+            case "4": 
+                detalles = prompt("Ingrese Número de Cuenta y Tipo:");
+                break;
+            default:
+                log("ERROR: Método no válido.", "video-msg");
+                return;
+        }
+
+        if (detalles) {
+            log(`PROCESANDO: $${montoDisponible.toFixed(2)} vía método seleccionado...`, "money-msg");
+            log(`REINVERSIÓN: $${reinversión.toFixed(2)} añadidos al clúster.`, "sys-msg");
+            balance = 0; // Reinicia el ciclo de generación
+            log("ÉXITO: Fondos en camino. Tiempo estimado: 2-24h.");
+        }
+    }
+
+    // --- LÍNEA 1185: BOTÓN DE ACCESO DIRECTO AL CAJERO ---
+    function inyectarBotonCajero() {
+        const btn = document.createElement('button');
+        btn.innerText = "🏧 CAJERO";
+        btn.style = "position:fixed; bottom:80px; left:20px; padding:15px; background:#f39c12; color:white; border:none; border-radius:50%; font-weight:bold; z-index:10000; box-shadow: 0 0 15px #f39c12;";
+        btn.onclick = interfazRetiroReal;
+        document.body.appendChild(btn);
+    }
+
+    // --- LÍNEA 1200: ARRANQUE DEL ECOSISTEMA BANCARIO ---
+    const inicioBancario = window.onload;
+    window.onload = () => {
+        if (inicioBancario) inicioBancario();
+        inyectarBotonCajero();
+        log("SISTEMA: Pasarela de pagos Davilet Pay activa.");
+    };
 
 </script>
 </body>
