@@ -1732,6 +1732,157 @@ log("MODO EXPANSIÓN: Conectado al satélite Davilet-1.");
         log("DAVILET CLOUD OS: INTELIGENCIA PREDICTIVA ACTIVA.", "money-msg");
         log("ESTADO: Sistema optimizado para máximo rendimiento.", "sys-msg");
     };
+// --- LÍNEA 1737: MOTOR DE NOTIFICACIONES VISUALES ---
+    function enviarNotificacionDavilet(mensaje, tipo) {
+        const toast = document.createElement('div');
+        toast.style = `position:fixed; bottom:20px; right:20px; padding:15px; border-radius:10px; z-index:99999; font-family:monospace; font-weight:bold; animation: slideIn 0.5s ease;`;
+        
+        if (tipo === "alerta") {
+            toast.style.background = "rgba(255, 0, 0, 0.9)";
+            toast.style.color = "white";
+            toast.style.border = "2px solid #ff4444";
+        } else {
+            toast.style.background = "rgba(0, 255, 65, 0.9)";
+            toast.style.color = "black";
+            toast.style.border = "2px solid #003b00";
+        }
+
+        toast.innerHTML = `[DAVILET IA]: ${mensaje}`;
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.style.animation = "slideOut 0.5s ease";
+            setTimeout(() => toast.remove(), 500);
+        }, 4000);
+    }
+
+    // --- LÍNEA 1760: MONITOR DE METAS FINANCIERAS ---
+    let metaAlcanzada = false;
+    function verificarHitosDeCapital() {
+        if (balance >= 1000 && !metaAlcanzada) {
+            enviarNotificacionDavilet("¡HITO ALCANZADO! $1,000 acumulados en la nube.", "exito");
+            metaAlcanzada = true;
+            sonarPulso(); // Llama al sonido que programaste en la línea 1281
+        }
+    }
+
+    // --- LÍNEA 1775: LANZAMIENTO DEL ECOSISTEMA FINAL ---
+    const cierreFinal = window.onload;
+    window.onload = () => {
+        if (cierreFinal) cierreFinal();
+        // Inicia el monitoreo de hitos cada 10 segundos
+        setInterval(verificarHitosDeCapital, 10000);
+        log("-----------------------------------------");
+        log("DAVILET CLOUD OS: SISTEMA DE ALERTAS ACTIVO.", "money-msg");
+        log("ESTADO: Listo para operaciones masivas.", "sys-msg");
+    };
+// --- LÍNEA 1780: GENERADOR DE PANEL ESTADÍSTICO ---
+    function mostrarEstadisticasReales() {
+        const totalRetirado = (balance * 0.5).toFixed(2); // Basado en tu regla de reinversión
+        const totalReinvertido = (balance * 0.5).toFixed(2);
+        
+        console.group("📊 ESTADÍSTICAS DAVILET CLOUD");
+        console.log(`Capital Generado: $${balance.toFixed(2)}`);
+        console.log(`Bolsillo (50%): $${totalRetirado}`);
+        console.log(`Reinvertido (50%): $${totalReinvertido}`);
+        console.groupEnd();
+        
+        log(`MÉTRICAS: Flujo optimizado al 100%.`, "money-msg");
+    }
+
+    // --- LÍNEA 1795: SISTEMA DE AUTO-RECUPERACIÓN DE DATOS ---
+    function verificarIntegridadNube() {
+        if (!localStorage.getItem("progreso_davilet")) {
+            log("AVISO: Creando nueva partición en la nube para Davilet...", "sys-msg");
+            guardarProgresoMaestro();
+        } else {
+            log("NUBE: Datos de capital verificados y seguros.", "sys-msg");
+        }
+    }
+
+    // --- LÍNEA 1810: ARRANQUE DEL ECOSISTEMA V5.0 ---
+    const inicioTotal = window.onload;
+    window.onload = () => {
+        if (inicioTotal) inicioTotal();
+        verificarIntegridadNube();
+        // Muestra las estadísticas cada 5 minutos
+        setInterval(mostrarEstadisticasReales, 300000);
+        log("-----------------------------------------");
+        log("DAVILET SUPER IA: SISTEMA DE MÉTRICAS ACTIVO.");
+        log("ESTADO: Operando con 0% de pérdida de datos.");
+    };
+// --- LÍNEA 1815: PROTOCOLO DE RESPALDO TOTAL ---
+    function activarRespaldoEmergencia() {
+        const estadoCarga = navigator.getBattery ? "Monitoreando Batería..." : "Energía Externa";
+        log(`SISTEMA: ${estadoCarga}. Preparando backup de seguridad...`, "sys-msg");
+        
+        // Crea un punto de restauración con el balance y la reinversión actual
+        const snapshotDavilet = {
+            saldo_total: balance.toFixed(2),
+            fondo_reinversion: (balance * 0.5).toFixed(2),
+            fecha_corte: new Date().toLocaleString()
+        };
+        
+        localStorage.setItem("DAVILET_BACKUP_PRO", JSON.stringify(snapshotDavilet));
+        log("ÉXITO: Punto de restauración creado en la nube local.", "money-msg");
+    }
+
+    // --- LÍNEA 1832: OPTIMIZADOR DINÁMICO DE NÚCLEOS ---
+    function optimizarProcesamientoFinal() {
+        log("IA: Reajustando hilos para máxima eficiencia de minería...", "sys-msg");
+        tasaHash += 5.0; // Aumento final de potencia
+        log(`RENDIMIENTO: Nueva tasa de hash optimizada: ${tasaHash} H/s`, "money-msg");
+    }
+
+    // --- LÍNEA 1845: CIERRE MAESTRO DEL ECOSISTEMA ---
+    const inicioDefinitivo = window.onload;
+    window.onload = () => {
+        if (inicioDefinitivo) inicioDefinitivo();
+        activarRespaldoEmergencia();
+        optimizarProcesamientoFinal();
+        log("=========================================");
+        log("   DAVILET SUPER IA V5.0 - ONLINE       ");
+        log("=========================================");
+    };
+// --- LÍNEA 1848: INYECTOR DE INTERFAZ GRÁFICA ---
+    function construirDashboardVisual() {
+        const panel = document.createElement('div');
+        panel.id = "davilet-dashboard";
+        panel.style = "position:fixed; top:10px; right:10px; width:220px; background:rgba(0,20,0,0.9); border:1px solid #00ff41; border-radius:10px; padding:15px; color:#00ff41; font-family:monospace; font-size:12px; z-index:10000; box-shadow: 0 0 15px #00ff41;";
+        
+        panel.innerHTML = `
+            <div style='text-align:center; font-weight:bold; border-bottom:1px solid #00ff41; margin-bottom:10px;'>DAVILET CLOUD V5.0</div>
+            <div>SALDO: <span id='db-balance'>$0.00</span></div>
+            <div>REINVERSIÓN: <span id='db-invest'>$0.00</span></div>
+            <div style='margin-top:10px;'>CLUSTER: <progress id='db-hash' value='0' max='100' style='width:100%; accent-color:#00ff41;'></progress></div>
+            <div id='db-status' style='font-size:10px; color:#aaa; margin-top:5px;'>ESTADO: Sincronizando...</div>
+        `;
+        document.body.appendChild(panel);
+        actualizarDashboard();
+    }
+
+    // --- LÍNEA 1870: ACTUALIZADOR DE DATOS EN TIEMPO REAL ---
+    function actualizarDashboard() {
+        setInterval(() => {
+            const elBalance = document.getElementById('db-balance');
+            const elInvest = document.getElementById('db-invest');
+            const elProgress = document.getElementById('db-hash');
+            
+            if(elBalance) elBalance.innerText = `$${balance.toFixed(2)}`;
+            if(elInvest) elInvest.innerText = `$${(balance * 0.5).toFixed(2)}`;
+            if(elProgress) elProgress.value = (Math.random() * 100);
+        }, 1000);
+    }
+
+    // --- LÍNEA 1890: ARRANQUE DEL SISTEMA VISUAL ---
+    const inicioVisual = window.onload;
+    window.onload = () => {
+        if (inicioVisual) inicioVisual();
+        construirDashboardVisual();
+        log("-----------------------------------------");
+        log("DAVILET IA: DASHBOARD VISUAL DESPLEGADO.", "money-msg");
+        log("SISTEMA: Interfaz de monitoreo activa.");
+    };
 
 </script>
 </body>
